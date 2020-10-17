@@ -41,7 +41,7 @@ class CurrencyExchangeRates extends ExchangeRates
     }
 
     /**
-     * Current table of exchange rates from the selected table type.
+     * Retrieve current table of exchange rates from the selected table type.
      *
      * @return ResponseInterface
      * @throws ClientExceptionInterface
@@ -52,7 +52,7 @@ class CurrencyExchangeRates extends ExchangeRates
     }
 
     /**
-     * Series of latest {count} exchange rates of the provided currency from the selected table type.
+     * Retrieve series of latest {count} exchange rates of the provided currency from the selected table type.
      *
      * @param  int $count
      *
@@ -65,7 +65,8 @@ class CurrencyExchangeRates extends ExchangeRates
     }
 
     /**
-     * Exchange rates of the provided currency from the selected table type, published today (or lack of data).
+     * Retrieve exchange rates of the provided currency from the selected table type,
+     * published today (or lack of data).
      *
      * @return ResponseInterface
      * @throws ClientExceptionInterface
@@ -76,7 +77,8 @@ class CurrencyExchangeRates extends ExchangeRates
     }
 
     /**
-     * Exchange rates of the provided currency from the selected table type, published on {date} (or lack of data).
+     * Retrieve exchange rates of the provided currency from the selected table type,
+     * published on {date} (or lack of data).
      *
      * @param  DateTimeInterface $date
      *
@@ -94,7 +96,7 @@ class CurrencyExchangeRates extends ExchangeRates
     }
 
     /**
-     * Exchange rates of the provided currency from the selected table type,
+     * Retrieve exchange rates of the provided currency from the selected table type,
      * published from {startDate} to {endDate} (or lack of data).
      *
      * @param  DateTimeInterface $startDate

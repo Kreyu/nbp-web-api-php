@@ -31,9 +31,9 @@ class Client implements ClientInterface
 
     private $httpClientBuilder;
 
-    public function __construct(ClientBuilder $httpClientBuilder, ?string $contentType = null)
+    public function __construct(ClientBuilder $httpClientBuilder = null, ?string $contentType = null)
     {
-        $this->httpClientBuilder = $httpClientBuilder;
+        $this->httpClientBuilder = $httpClientBuilder ?? new ClientBuilder();
 
         $this->setBaseUri(self::BASE_URI);
 

@@ -23,7 +23,7 @@ use Psr\Http\Message\ResponseInterface;
 class GoldPrices extends AbstractApi
 {
     /**
-     * Current gold price quotation.
+     * Retrieve current gold price quotation.
      *
      * @return ResponseInterface
      * @throws ClientExceptionInterface
@@ -34,7 +34,7 @@ class GoldPrices extends AbstractApi
     }
 
     /**
-     * Series of latest {count} gold price quotations.
+     * Retrieve series of latest {count} gold price quotations.
      *
      * @param  int $count
      *
@@ -47,7 +47,7 @@ class GoldPrices extends AbstractApi
     }
 
     /**
-     * Gold price quotation published today (or lack of data).
+     * Retrieve gold price quotation published today (or lack of data).
      *
      * @return ResponseInterface
      * @throws ClientExceptionInterface
@@ -58,7 +58,7 @@ class GoldPrices extends AbstractApi
     }
 
     /**
-     * Gold price quotation published on {date} (or lack of data).
+     * Retrieve gold price quotation published on {date} (or lack of data).
      *
      * @param  DateTimeInterface $date
      *
@@ -71,7 +71,7 @@ class GoldPrices extends AbstractApi
     }
 
     /**
-     * Gold price quotations published from {startDate} to {endDate} (or lack of data).
+     * Retrieve gold price quotations published from {startDate} to {endDate} (or lack of data).
      *
      * @param  DateTimeInterface $startDate
      * @param  DateTimeInterface $endDate

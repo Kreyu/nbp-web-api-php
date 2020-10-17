@@ -42,6 +42,13 @@ class ExchangeRates extends AbstractApi
         $this->tableType = $tableType;
     }
 
+    /**
+     * Change table type used in the requests.
+     *
+     * @param  string $tableType
+     *
+     * @return $this
+     */
     public function fromTable(string $tableType): self
     {
         $this->tableType = $tableType;
@@ -49,13 +56,20 @@ class ExchangeRates extends AbstractApi
         return $this;
     }
 
+    /**
+     * Switch API mode to fetch exchange rates for given currency code.
+     *
+     * @param  string $currencyCode
+     *
+     * @return CurrencyExchangeRates
+     */
     public function forCurrency(string $currencyCode): CurrencyExchangeRates
     {
         return new CurrencyExchangeRates($this->client, $this->tableType, $currencyCode);
     }
 
     /**
-     * Current table of exchange rates from the selected table type.
+     * Retrieve current table of exchange rates from the selected table type.
      *
      * @return ResponseInterface
      * @throws ClientExceptionInterface
@@ -66,7 +80,7 @@ class ExchangeRates extends AbstractApi
     }
 
     /**
-     * Series of latest {count} exchange rates from the selected table type.
+     * Retrieve series of latest {count} exchange rates from the selected table type.
      *
      * @param  int $count
      *
@@ -79,7 +93,7 @@ class ExchangeRates extends AbstractApi
     }
 
     /**
-     * Exchange rate from the selected table type, published today (or lack of data).
+     * Retrieve exchange rate from the selected table type, published today (or lack of data).
      *
      * @return ResponseInterface
      * @throws ClientExceptionInterface
@@ -90,7 +104,7 @@ class ExchangeRates extends AbstractApi
     }
 
     /**
-     * Exchange rate from the selected table type, published on {date} (or lack of data).
+     * Retrieve exchange rate from the selected table type, published on {date} (or lack of data).
      *
      * @param  DateTimeInterface $date
      *
@@ -107,7 +121,8 @@ class ExchangeRates extends AbstractApi
     }
 
     /**
-     * Exchange rates from the selected table type, published from {startDate} to {endDate} (or lack of data).
+     * Retrieve exchange rates from the selected table type,
+     * published from {startDate} to {endDate} (or lack of data).
      *
      * @param  DateTimeInterface $startDate
      * @param  DateTimeInterface $endDate

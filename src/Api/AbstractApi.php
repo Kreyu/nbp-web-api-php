@@ -31,8 +31,6 @@ abstract class AbstractApi implements ApiInterface
     }
 
     /**
-     * Send a request using the "GET" method.
-     *
      * @param  string $uri
      *
      * @return ResponseInterface
