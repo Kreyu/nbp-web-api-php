@@ -49,7 +49,7 @@ class Client implements ClientInterface
 
     public function setBaseUri(string $uri): void
     {
-        Assert::stringNotEmpty($uri);
+        Assert::notEmpty($uri);
 
         $this->httpClientBuilder->removePlugin(AddHostPlugin::class);
         $this->httpClientBuilder->addPlugin(new AddHostPlugin(

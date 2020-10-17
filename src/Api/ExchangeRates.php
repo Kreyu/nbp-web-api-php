@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Kreyu\NBPWebApi;
 
 use DateTimeInterface;
+use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Message\ResponseInterface;
 use Webmozart\Assert\Assert;
 
@@ -28,6 +29,10 @@ class ExchangeRates extends AbstractApi
 
     protected $tableType;
 
+    /**
+     * @param  ClientInterface $client
+     * @param  string          $tableType Table type (A, B, or C)
+     */
     public function __construct(ClientInterface $client, string $tableType)
     {
         parent::__construct($client);
@@ -49,21 +54,49 @@ class ExchangeRates extends AbstractApi
         return new CurrencyExchangeRates($this->client, $this->tableType, $currencyCode);
     }
 
+    /**
+     * Current table of exchange rates from the selected table type.
+     *
+     * @return ResponseInterface
+     * @throws ClientExceptionInterface
+     */
     public function all(): ResponseInterface
     {
         return $this->get(sprintf('exchangerates/tables/%s', $this->tableType));
     }
-    
+
+    /**
+     * Series of latest {count} exchange rates from the selected table type.
+     *
+     * @param  int $count
+     *
+     * @return ResponseInterface
+     * @throws ClientExceptionInterface
+     */
     public function latest(int $count): ResponseInterface
     {
         return $this->get(sprintf('exchangerates/tables/%s/last/%d', $this->tableType, $count));
     }
 
+    /**
+     * Exchange rate from the selected table type, published today (or lack of data).
+     *
+     * @return ResponseInterface
+     * @throws ClientExceptionInterface
+     */
     public function today(): ResponseInterface
     {
         return $this->get(sprintf('exchangerates/tables/%s/today', $this->tableType));
     }
 
+    /**
+     * Exchange rate from the selected table type, published on {date} (or lack of data).
+     *
+     * @param  DateTimeInterface $date
+     *
+     * @return ResponseInterface
+     * @throws ClientExceptionInterface
+     */
     public function inDate(DateTimeInterface $date): ResponseInterface
     {
         return $this->get(sprintf(
@@ -73,6 +106,15 @@ class ExchangeRates extends AbstractApi
         ));
     }
 
+    /**
+     * Exchange rates from the selected table type, published from {startDate} to {endDate} (or lack of data).
+     *
+     * @param  DateTimeInterface $startDate
+     * @param  DateTimeInterface $endDate
+     *
+     * @return ResponseInterface
+     * @throws ClientExceptionInterface
+     */
     public function betweenDates(DateTimeInterface $startDate, DateTimeInterface $endDate): ResponseInterface
     {
         return $this->get(sprintf(
