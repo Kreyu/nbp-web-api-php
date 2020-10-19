@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the NBPWebApi package.
+ * This file is part of the NBP Web API Client package.
  *
  * (c) Sebastian Wróblewski <kontakt@swroblewski.pl>
  *
@@ -11,9 +11,10 @@
 
 declare(strict_types=1);
 
-namespace Kreyu\NBPWebApi;
+namespace Kreyu\NBPWebApi\Api;
 
 use DateTimeInterface;
+use Kreyu\NBPWebApi\ClientInterface;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Message\ResponseInterface;
 use Webmozart\Assert\Assert;

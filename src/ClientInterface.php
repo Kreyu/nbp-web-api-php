@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the NBPWebApi package.
+ * This file is part of the NBP Web API Client package.
  *
  * (c) Sebastian Wróblewski <kontakt@swroblewski.pl>
  *
@@ -20,6 +20,10 @@ use Http\Client\Common\HttpMethodsClientInterface;
  */
 interface ClientInterface
 {
+    public const CONTENT_TYPE_JSON = 'application/json';
+
+    public const CONTENT_TYPE_XML = 'application/xml';
+
     public function getHttpClient(): HttpMethodsClientInterface;
 
     public function setBaseUri(string $uri): void;

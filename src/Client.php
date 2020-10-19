@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the NBPWebApi package.
+ * This file is part of the NBP Web API Client package.
  *
  * (c) Sebastian Wróblewski <kontakt@swroblewski.pl>
  *
@@ -16,7 +16,9 @@ namespace Kreyu\NBPWebApi;
 use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin\AddHostPlugin;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
-use Kreyu\NBPWebApi\Http\ClientBuilder;
+use Kreyu\NBPWebApi\Api\ExchangeRates;
+use Kreyu\NBPWebApi\Api\GoldPrices;
+use Kreyu\NBPWebApi\Http;
 use Webmozart\Assert\Assert;
 
 /**
@@ -24,22 +26,15 @@ use Webmozart\Assert\Assert;
  */
 class Client implements ClientInterface
 {
-    public const CONTENT_TYPE_JSON = 'application/json';
-    public const CONTENT_TYPE_XML = 'application/xml';
-
-    private const BASE_URI = 'http://api.nbp.pl/api';
+    private const BASE_URI = 'http://api.nbp.pl';
 
     private $httpClientBuilder;
 
-    public function __construct(ClientBuilder $httpClientBuilder = null, ?string $contentType = null)
+    public function __construct(Http\ClientBuilder $httpClientBuilder = null)
     {
-        $this->httpClientBuilder = $httpClientBuilder ?? new ClientBuilder();
+        $this->httpClientBuilder = $httpClientBuilder ?? new Http\ClientBuilder();
 
         $this->setBaseUri(self::BASE_URI);
-
-        if (null !== $contentType) {
-            $this->setContentType($contentType);
-        }
     }
 
     public function getHttpClient(): HttpMethodsClientInterface

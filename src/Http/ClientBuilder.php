@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the NBPWebApi package.
+ * This file is part of the NBP Web API Client package.
  *
  * (c) Sebastian Wróblewski <kontakt@swroblewski.pl>
  *

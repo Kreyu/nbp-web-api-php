@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the NBPWebApi package.
+ * This file is part of the NBP Web API Client package.
  *
  * (c) Sebastian Wróblewski <kontakt@swroblewski.pl>
  *
@@ -11,8 +11,9 @@
 
 declare(strict_types=1);
 
-namespace Kreyu\NBPWebApi;
+namespace Kreyu\NBPWebApi\Api;
 
+use Kreyu\NBPWebApi\ClientInterface;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Message\ResponseInterface;
 
@@ -22,6 +23,8 @@ use Psr\Http\Message\ResponseInterface;
 abstract class AbstractApi implements ApiInterface
 {
     protected const DATE_FORMAT = 'Y-m-d';
+
+    private const URI_PREFIX = '/api';
 
     protected $client;
 
@@ -38,6 +41,11 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function get(string $uri): ResponseInterface
     {
-        return $this->client->getHttpClient()->get($uri);
+        return $this->client->getHttpClient()->get($this->prepareUri($uri));
+    }
+
+    private function prepareUri(string $uri): string
+    {
+        return sprintf('%s/%s', self::URI_PREFIX, $uri);
     }
 }
