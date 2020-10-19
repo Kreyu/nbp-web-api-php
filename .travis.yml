@@ -16,4 +16,4 @@ env:
 install:
   - composer $COMPOSER_FLAGS --prefer-dist --no-interaction
 
-script: vendor/phpunit/phpunit/phpunit --verbose .
+script: vendor/phpunit/phpunit/phpunit --verbose tests/
