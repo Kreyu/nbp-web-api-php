@@ -18,11 +18,11 @@ namespace Kreyu\NBPWebApi\Tests;
  */
 class TestCase extends \PHPUnit\Framework\TestCase
 {
-    protected function getInaccessibleProperty($object, string $property)
+    protected function getInaccessibleProperty($object, string $propertyName)
     {
         $reflection = new \ReflectionClass($object);
 
-        $property = $reflection->getProperty($property);
+        $property = $reflection->getProperty($propertyName);
         $property->setAccessible(true);
 
         return $property->getValue($object);
