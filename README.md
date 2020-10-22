@@ -1,11 +1,15 @@
 # NBP Web API Client
 
+[![Latest Stable Version](https://poser.pugx.org/kreyu/nbp-web-api/version)](https://packagist.org/packages/kreyu/nbp-web-api)
+[![Build Status](https://travis-ci.org/Kreyu/nbp-web-api-php.svg?branch=master)](https://travis-ci.org/Kreyu/nbp-web-api-php)
+
+Simple and fluent interface to retrieve data from [NBP Web API](http://api.nbp.pl/).  
 This library structure is strongly inspired by [knplabs/github-api](https://github.com/KnpLabs/php-github-api) package.
 
 ### Installation
 
 This package is decoupled from any HTTP client thanks to the [HTTPlug](https://httplug.io/).  
-Because of that, you have to install packages that provide [psr/http-client-implementation](https://packagist.org/providers/psr/http-client-implementation) and [psr/http-factory-implementation](https://packagist.org/providers/psr/http-factory-implementation).  
+Requires packages that provide [http-client-implementation](https://packagist.org/providers/psr/http-client-implementation) and [psr/http-factory-implementation](https://packagist.org/providers/psr/http-factory-implementation).  
 For more information visit [HTTPlug for library users](https://docs.php-http.org/en/latest/httplug/users.html).
 
 ```
