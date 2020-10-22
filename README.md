@@ -21,7 +21,7 @@ use Kreyu\NBPWebApi\Api\ExchangeRates;
 $client = new Client();
 
 // Example call
-$client->exchangeRates(ExchangeRates::TABLE_TYPE_A)->forCurrency('PLN')->latest(5);
+$client->exchangeRates(ExchangeRates::TABLE_TYPE_A)->forCurrency('EUR')->latest(5);
 ```
 
 #### Changing content type
