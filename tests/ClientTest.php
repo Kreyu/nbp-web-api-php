@@ -46,15 +46,15 @@ class ClientTest extends TestCase
 
     public function testSettingContentTypeJson(): void
     {
-        $this->testChangingContentType(ClientInterface::CONTENT_TYPE_JSON);
+        $this->executeTestChangingContentType(ClientInterface::CONTENT_TYPE_JSON);
     }
 
     public function testSettingContentTypeXml(): void
     {
-        $this->testChangingContentType(ClientInterface::CONTENT_TYPE_XML);
+        $this->executeTestChangingContentType(ClientInterface::CONTENT_TYPE_XML);
     }
 
-    private function testChangingContentType(string $contentType): void
+    private function executeTestChangingContentType(string $contentType): void
     {
         $builder = new Http\ClientBuilder();
 

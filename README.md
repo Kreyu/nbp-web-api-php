@@ -4,12 +4,13 @@ This library structure is strongly inspired by [knplabs/github-api](https://gith
 
 ### Installation
 
+This package is decoupled from any HTTP client thanks to the [HTTPlug](https://httplug.io/).  
+Because of that, you have to install packages that provide [psr/http-client-implementation](https://packagist.org/providers/psr/http-client-implementation) and [psr/http-factory-implementation](https://packagist.org/providers/psr/http-factory-implementation).  
+For more information visit [HTTPlug for library users](https://docs.php-http.org/en/latest/httplug/users.html).
+
 ```
 $ composer require kreyu/nbp-web-api
 ```
-
-This package is decoupled from any HTTP client thanks to the [HTTPlug](https://httplug.io/).  
-For more information visit [HTTPlug for library users](https://docs.php-http.org/en/latest/httplug/users.html).
 
 ### Usage
 
