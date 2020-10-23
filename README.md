@@ -1,7 +1,7 @@
 # NBP Web API Client
 
 [![Latest Stable Version](https://poser.pugx.org/kreyu/nbp-web-api/version)](https://packagist.org/packages/kreyu/nbp-web-api)
-[![Build Status](https://travis-ci.org/Kreyu/nbp-web-api-php.svg?branch=master)](https://travis-ci.org/Kreyu/nbp-web-api-php)
+[![Build Status](https://travis-ci.org/Kreyu/nbp-web-api-php.svg)](https://travis-ci.org/Kreyu/nbp-web-api-php)
 
 Simple and fluent interface to retrieve data from [NBP Web API](http://api.nbp.pl/).  
 This library structure is strongly inspired by [knplabs/github-api](https://github.com/KnpLabs/php-github-api) package.
