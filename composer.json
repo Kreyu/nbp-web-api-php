@@ -25,7 +25,7 @@
   "require-dev": {
     "guzzlehttp/psr7": "^1.2",
     "http-interop/http-factory-guzzle": "^1.0",
-    "phpunit/phpunit": "^9.0",
+    "phpunit/phpunit": "^8.0",
     "php-http/guzzle6-adapter": "^1.0 || ^2.0"
   },
   "autoload": {
