@@ -23,6 +23,8 @@
     "webmozart/assert": "^1.0"
   },
   "require-dev": {
+    "ext-dom": "*",
+    "ext-mbstring": "*",
     "guzzlehttp/psr7": "^1.2",
     "http-interop/http-factory-guzzle": "^1.0",
     "phpunit/phpunit": "^8.2.3",

@@ -38,7 +38,7 @@ class CurrencyExchangeRates extends ExchangeRates
         Assert::notEmpty($currencyCode);
         Assert::maxLength($currencyCode, 3);
 
-        $this->currencyCode = $currencyCode;
+        $this->currencyCode = strtolower($currencyCode);
     }
 
     /**
@@ -49,7 +49,7 @@ class CurrencyExchangeRates extends ExchangeRates
      */
     public function all(): ResponseInterface
     {
-        return $this->get(sprintf('exchangerates/rates/%s/%s', $this->currencyCode, $this->tableType));
+        return $this->get(sprintf('exchangerates/rates/%s/%s', $this->tableType, $this->currencyCode));
     }
 
     /**
@@ -62,7 +62,7 @@ class CurrencyExchangeRates extends ExchangeRates
      */
     public function latest(int $count): ResponseInterface
     {
-        return $this->get(sprintf('exchangerates/rates/%s/%s/last/%d', $this->currencyCode, $this->tableType, $count));
+        return $this->get(sprintf('exchangerates/rates/%s/%s/last/%d', $this->tableType, $this->currencyCode, $count));
     }
 
     /**
@@ -74,7 +74,7 @@ class CurrencyExchangeRates extends ExchangeRates
      */
     public function today(): ResponseInterface
     {
-        return $this->get(sprintf('exchangerates/rates/%s/%s/today', $this->currencyCode, $this->tableType));
+        return $this->get(sprintf('exchangerates/rates/%s/%s/today', $this->tableType, $this->currencyCode));
     }
 
     /**
@@ -90,8 +90,8 @@ class CurrencyExchangeRates extends ExchangeRates
     {
         return $this->get(sprintf(
             'exchangerates/rates/%s/%s/%s',
-            $this->currencyCode,
             $this->tableType,
+            $this->currencyCode,
             $date->format(self::DATE_FORMAT)
         ));
     }
@@ -110,8 +110,8 @@ class CurrencyExchangeRates extends ExchangeRates
     {
         return $this->get(sprintf(
             'exchangerates/rates/%s/%s/%s/%s',
-            $this->currencyCode,
             $this->tableType,
+            $this->currencyCode,
             $startDate->format(self::DATE_FORMAT),
             $endDate->format(self::DATE_FORMAT)
         ));
